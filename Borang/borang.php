@@ -215,6 +215,10 @@ require_once(BORANG_COMPONENTS_DIR . "/config.php"); // Import mysql config
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="card col-md-8 shadow-lg m-md-4 p-md-4">
+                <div class="col-12 text-center">
                     <div class="card-body">
                         <div class="card-title">
                             <h2>Borang Maklumat Pelajar</h2>
