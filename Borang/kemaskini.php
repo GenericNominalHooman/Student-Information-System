@@ -27,6 +27,15 @@ if(!empty($_GET["id"])){
     $peringkat = empty($_GET["peringkat"]) ? getDefaultColumnValue($conn, $_GET["id"], "peringkat") : $_GET["peringkat"];
     $program = empty($_GET["program"]) ? getDefaultColumnValue($conn, $_GET["id"], "program") : $_GET["program"];
     $alamat = empty($_GET["alamat"]) ? getDefaultColumnValue($conn, $_GET["id"], "alamat") : $_GET["alamat"];
+    $it = empty($_GET["it"]) ? getDefaultColumnValue($conn, $_GET["id"], "it") : $_GET["it"];
+    $peranti = empty($_GET["peranti"]) ? getDefaultColumnValue($conn, $_GET["id"], "peranti0") : $_GET["peranti"];// This logic is bad, will fetch peranti0 only if get variable is not set
+    
+    // Check for peranti values
+    foreach($peranti as $perkakasan_peranti){
+        if($perkakasan_peranti == "smartphone" || $perkakasan_peranti == "laptop" || $perkakasan_peranti == "tablet" || $perkakasan_peranti == "lain"){
+            
+        }
+    }
     
     // Update db row
     $statement = "UPDATE pelajar SET nama='".$nama."', jantina='".$jantina."', tlahir='".$tlahir."', peringkat='".$peringkat."', program='".$program."', alamat='".$alamat."' WHERE id='".$_GET["id"]."'";

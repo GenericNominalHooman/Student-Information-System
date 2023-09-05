@@ -20,6 +20,7 @@ require_once(BORANG_COMPONENTS_DIR . "/config.php"); // Import mysql config
 <!-- Jquery Ends -->
 
 <body>
+    <!-- CONTENT BEGIN -->
     <div class="container-fluid">
         <div class="row d-flex justify-content-center align-items-center">
             <div class="card col-md-8 shadow-lg m-md-4 p-md-4">
@@ -55,56 +56,6 @@ require_once(BORANG_COMPONENTS_DIR . "/config.php"); // Import mysql config
                                                     <input required type="radio" name="jantina" id="jantina_perempuan" value="perempuan">
                                                     Perempuan
                                                 </label>
-                                            </div>
-                                            <div class="form-group m-4">
-                                                <label for="bangsa" class="form-label">Bangsa: </label>
-                                                <select required class="dropdown form-control-sm" id="bangsa" name="bangsa">
-                                                    <div class="dropdown-menu">
-                                                        <option value="" class="dropdown-item" selected disabled>
-                                                            Bangsa
-                                                        </option>
-                                                        <option value="melayu" class="dropdown-item">
-                                                            Melayu
-                                                        </option>
-                                                        <option value="cina" class="dropdown-item">
-                                                            Cina
-                                                        </option>
-                                                        <option value="India" class="dropdown-item">
-                                                            India
-                                                        </option>
-                                                        <option value="bumiputera" class="dropdown-item">
-                                                            Bumiputera Sabah/Sarawak
-                                                        </option>
-                                                        <option value="lain" class="dropdown-item">
-                                                            Lain-lain
-                                                        </option>
-                                                    </div>
-                                                </select>
-                                            </div>
-                                            <div class="form-group m-4">
-                                                <label for="agama" class="form-label">Agama: </label>
-                                                <select required class="dropdown form-control-sm" id="agama" name="agama">
-                                                    <div class="dropdown-menu">
-                                                        <option value="" class="dropdown-item" selected disabled>
-                                                            Agama
-                                                        </option>
-                                                        <option value="islam" class="dropdown-item">
-                                                            Islam
-                                                        </option>
-                                                        <option value="buddha" class="dropdown-item">
-                                                            Buddha
-                                                        </option>
-                                                        <option value="hindu" class="dropdown-item">
-                                                            Hindu
-                                                        </option>
-                                                        <option value="kristian" class="dropdown-item">
-                                                            Kristian
-                                                        </option>
-                                                        <option value="lain" class="dropdown-item">
-                                                            Lain-lain
-                                                        </option>
-                                                    </div>
-                                                </select>
                                             </div>
                                             <div class="form-floating m-4">
                                                 <input required type="date" name="tarikh_lahir" class="form-control" id="tarikh_lahir" placeholder="Tarikh Lahir">
@@ -151,15 +102,15 @@ require_once(BORANG_COMPONENTS_DIR . "/config.php"); // Import mysql config
                                                 </select>
                                             </div>
                                             <div class="form-group m-4">
-                                                <label id="kemahiran_ict_label" for="kemahiran_ict" class="form-label">Kemahiran ICT(5): </label>
-                                                <input min="0" step="1" max="10" value="5" required type="range" name="kemahiran_ict" class="form-control-range" id="kemahiran_ict" placeholder="Kemahiran ICT">
+                                                <label id="it_label" for="it" class="form-label">Kemahiran ICT(5): </label>
+                                                <input min="0" step="1" max="10" value="5" required type="range" name="it" class="form-control-range" id="it" placeholder="Kemahiran ICT">
                                             </div>
                                             <script>
                                                 // UPDATE KEMAHIRAN ICT COUNTER BEGIN
                                                 $(document).ready(() => {
-                                                    $("#kemahiran_ict").on("input", (e)=>{
+                                                    $("#it").on("input", (e)=>{
                                                         console.log("Inputted");
-                                                        $("#kemahiran_ict_label").text("Kemahiran ICT("+$("#kemahiran_ict").val()+"): ");
+                                                        $("#it_label").text("Kemahiran ICT("+$("#it").val()+"): ");
                                                     });
                                                 });
                                                 // UPDATE KEMAHIRAN ICT COUNTER ENDS
@@ -233,7 +184,6 @@ require_once(BORANG_COMPONENTS_DIR . "/config.php"); // Import mysql config
             </div>
         </div>
     </div>
-
     <!-- CONTENT ENDS -->
 
 
