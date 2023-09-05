@@ -25,9 +25,9 @@ $userInputs = [
 ];
 
 // Sanitizes user input
-array_map(function($userInput){
-    return empty($userInput) ? null : Sanitize::sanitize($userInput);
-}, $userInputs);
+// array_map(function($userInput){
+//     return empty($userInput) ? null : Sanitize::sanitize($userInput);
+// }, $userInputs);
 
 // Check whether user has unfilled input
 foreach($userInputs as $key => $value){
