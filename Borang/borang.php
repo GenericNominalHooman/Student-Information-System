@@ -124,19 +124,19 @@ require_once(BORANG_COMPONENTS_DIR . "/config.php"); // Import mysql config
                                                     <div class="col-md-3 col-sm-6">
                                                         <div class="form-check m-4">
                                                             <label for="smartphone" class="form-check-label">Smartphone</label>
-                                                            <input required class="form-check-input" type="checkbox" name="peranti[]" id="smartphone">
+                                                            <input  class="form-check-input" type="checkbox" name="peranti[]" id="smartphone">
                                                         </div>
                                                         <div class="form-check m-4">
                                                             <label for="laptop" class="form-check-label">Laptop</label>
-                                                            <input required class="form-check-input" type="checkbox" name="peranti[]" id="laptop">
+                                                            <input  class="form-check-input" type="checkbox" name="peranti[]" id="laptop">
                                                         </div>
                                                         <div class="form-check m-4">
                                                             <label for="tablet" class="form-check-label">Tablet</label>
-                                                            <input required class="form-check-input" type="checkbox" name="peranti[]" id="tablet">
+                                                            <input  class="form-check-input" type="checkbox" name="peranti[]" id="tablet">
                                                         </div>
                                                         <div class="form-check m-4">
                                                             <label for="lain" class="form-check-label">Lain-lain</label>
-                                                            <input required class="form-check-input" type="checkbox" name="peranti[]" id="lain">
+                                                            <input  class="form-check-input" type="checkbox" name="peranti[]" id="lain">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -172,7 +172,7 @@ require_once(BORANG_COMPONENTS_DIR . "/config.php"); // Import mysql config
                 <div class="col-12 text-center">
                     <div class="card-body">
                         <div class="card-title">
-                            <h2>Borang Maklumat Pelajar</h2>
+                            <h2>Maklumat Pelajar</h2>
                             <hr>
                         </div>
                         <div class="card-text container-fluid">

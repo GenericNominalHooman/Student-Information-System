@@ -144,7 +144,7 @@ require_once(BORANG_COMPONENTS_DIR . "/navbar.php"); // Import header
                                                         <div class="col-md-3 col-sm-6">
                                                             <div class="form-check m-4">
                                                                 <label for="smartphone" class="form-check-label">Smartphone</label>
-                                                                <input required class="form-check-input" type="checkbox" name="peranti[]" id="smartphone" <?php
+                                                                <input value="smartphone" class="form-check-input" type="checkbox" name="peranti[]" id="smartphone" <?php
                                                                     if(!empty($pelajarData->peranti0)){
                                                                         echo("checked");
                                                                     }
@@ -152,7 +152,7 @@ require_once(BORANG_COMPONENTS_DIR . "/navbar.php"); // Import header
                                                             </div>
                                                             <div class="form-check m-4">
                                                                 <label for="laptop" class="form-check-label">Laptop</label>
-                                                                <input required class="form-check-input" type="checkbox" name="peranti[]" id="laptop" <?php
+                                                                <input value="laptop" class="form-check-input" type="checkbox" name="peranti[]" id="laptop" <?php
                                                                     if(!empty($pelajarData->peranti1)){
                                                                         echo("checked");
                                                                     }
@@ -160,7 +160,7 @@ require_once(BORANG_COMPONENTS_DIR . "/navbar.php"); // Import header
                                                             </div>
                                                             <div class="form-check m-4">
                                                                 <label for="tablet" class="form-check-label">Tablet</label>
-                                                                <input required class="form-check-input" type="checkbox" name="peranti[]" id="tablet" <?php
+                                                                <input value="tablet" class="form-check-input" type="checkbox" name="peranti[]" id="tablet" <?php
                                                                     if(!empty($pelajarData->peranti2)){
                                                                         echo("checked");
                                                                     }
@@ -168,7 +168,7 @@ require_once(BORANG_COMPONENTS_DIR . "/navbar.php"); // Import header
                                                             </div>
                                                             <div class="form-check m-4">
                                                                 <label for="lain" class="form-check-label">Lain-lain</label>
-                                                                <input required class="form-check-input" type="checkbox" name="peranti[]" id="lain" <?php
+                                                                <input value="lain" class="form-check-input" type="checkbox" name="peranti[]" id="lain" <?php
                                                                     if(!empty($pelajarData->peranti3)){
                                                                         echo("checked");
                                                                     }
@@ -186,13 +186,13 @@ require_once(BORANG_COMPONENTS_DIR . "/navbar.php"); // Import header
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-12 col-lg-4 p-2">
-                                                    <button type="submit" name="hantar" class="btn btn-primary form-control shadow-lg py-4"><i class="fa-solid fa-floppy-disk"></i><span class="ms-2">Kemaskini</span></button>
+                                                    <button type="submit" name="hantar" class="btn btn-primary w-100 shadow-lg py-4"><i class="fa-solid fa-floppy-disk"></i><span class="ms-2">Kemaskini</span></button>
                                                 </div>
                                                 <div class="col-12 col-lg-4 p-2">
-                                                    <a class="btn btn-danger form-control shadow-lg py-4" href="<?php echo (BORANG_URL . "/delete.php?id=" . $_GET["id"]); ?>"><i class="fa-solid fa-trash"></i><span class="ms-2">Buang</span></a>
+                                                    <a class="btn btn-danger w-100 shadow-lg py-4" href="<?php echo (BORANG_URL . "/delete.php?id=" . $_GET["id"]); ?>"><i class="fa-solid fa-trash"></i><span class="ms-2">Buang</span></a>
                                                 </div>
                                                 <div class="col-12 col-lg-4 p-2">
-                                                    <button type="reset" class="btn form-control shadow-lg py-4"><i class="fa-solid fa-arrow-rotate-right"></i><span class="ms-2">Batal</span></button>
+                                                    <button type="reset" class="btn btn-secondary w-100 shadow-lg py-4"><i class="fa-solid fa-arrow-rotate-right"></i><span class="ms-2">Batal</span></button>
                                                 </div>
                                             </div>
                                         </div>

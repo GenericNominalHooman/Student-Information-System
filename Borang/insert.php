@@ -20,6 +20,8 @@ $userInputs = [
     "peringkat" => empty($_POST["peringkat_pengajian"]) ? null : $_POST["peringkat_pengajian"],
     "program" => empty($_POST["program"]) ? null : $_POST["program"],
     "alamat" => empty($_POST["alamat"]) ? null : $_POST["alamat"],
+    "peranti" => empty($_POST["peranti"]) ? null : $_POST["peranti"],
+    "it" => empty($_POST["it"]) ? null : $_POST["it"],
 ];
 
 // Sanitizes user input
@@ -35,8 +37,32 @@ foreach($userInputs as $key => $value){
     }
 }
 
+// Convert peranti array input into individual columns values
+$peranti0 = "";
+$peranti1 = "";
+$peranti2 = "";
+$peranti3 = "";
+$peranti4 = "";
+foreach($userInputs["peranti"] as $perkakasan_peranti){
+    switch($perkakasan_peranti){
+        case "smartphone":
+            $peranti0 = "smartphone";
+        break;
+        case "laptop":
+            $peranti1 = "laptop";        
+        break;
+        case "tablet":
+            $peranti2 = "tablet";        
+        break;
+        case "lain":
+            $peranti3 = "lain";        
+        break;
+    }
+}
+
+
 // Insert SQL record into borang.pelajar table
-$mysqlStatement = "INSERT INTO pelajar(id, nama, jantina, tlahir, peringkat, program, alamat) VALUES(NULL, '".$userInputs["nama"]."', '".$userInputs["jantina"]."', '".$userInputs["tlahir"]."', '".$userInputs["peringkat"]."', '".$userInputs["program"]."', '".$userInputs["alamat"]."')";
+$mysqlStatement = "INSERT INTO pelajar(id, nama, jantina, tlahir, peringkat, program, alamat, peranti0, peranti1, peranti2, peranti3, peranti4, it) VALUES(NULL, '".$userInputs["nama"]."', '".$userInputs["jantina"]."', '".$userInputs["tlahir"]."', '".$userInputs["peringkat"]."', '".$userInputs["program"]."', '".$userInputs["alamat"]."', peranti0='".$peranti0."', peranti1='".$peranti1."', peranti2='".$peranti2."', peranti3='".$peranti3."', peranti4='".$peranti4."', it='".$userInputs["it"]."')";
 if(!mysqli_query($conn, $mysqlStatement)){
     die("MYSQL error occured: ".mysqli_error($conn));
 }else{

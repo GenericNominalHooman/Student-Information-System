@@ -28,6 +28,8 @@ require_once(BORANG_COMPONENTS_DIR . "/navbar.php"); // Import header
                                     <th scope="col">Peringkat Pengajian</th>
                                     <th scope="col">Program</th>
                                     <th scope="col">Alamat</th>
+                                    <th scope="col">Kemahiran IT</th>
+                                    <th scope="col">Peranti</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -35,6 +37,8 @@ require_once(BORANG_COMPONENTS_DIR . "/navbar.php"); // Import header
                                 <?php
                                 $tdFormat = "
                                     <tr>
+                                        <td scope='col'>%s</td>
+                                        <td scope='col'>%s</td>
                                         <td scope='col'>%s</td>
                                         <td scope='col'>%s</td>
                                         <td scope='col'>%s</td>
@@ -54,19 +58,38 @@ require_once(BORANG_COMPONENTS_DIR . "/navbar.php"); // Import header
                                         </td>
                                     </tr>
                                 ";
+                                
                                 while($rows = mysqli_fetch_object($pelajarRows)){
-                                    printf($tdFormat, $rows->id, $rows->nama, $rows->jantina, $rows->tlahir, $rows->peringkat, $rows->program, $rows->alamat, $rows->id, $rows->id);
+                                    // Formatting displays for peranti field
+                                    $perantiHTML = "<ul>";
+                                    // Check wehther peranti exists in each field
+                                    if(!empty($rows->peranti0)){
+                                        // Appending peranti to html output value
+                                        $perantiHTML .= "<li>".$rows->peranti0."</li>";
+                                    }
+                                    if(!empty($rows->peranti1)){
+                                        // Appending peranti to html output value
+                                        $perantiHTML .= "<li>".$rows->peranti1."</li>";
+                                    }
+                                    if(!empty($rows->peranti2)){
+                                        // Appending peranti to html output value
+                                        $perantiHTML .= "<li>".$rows->peranti2."</li>";
+                                    }
+                                    if(!empty($rows->peranti3)){
+                                        // Appending peranti to html output value
+                                        $perantiHTML .= "<li>".$rows->peranti3."</li>";
+                                    }
+                                    if(!empty($rows->peranti4)){
+                                        // Appending peranti to html output value
+                                        $perantiHTML .= "<li>".$rows->peranti3."</li>";
+                                    }
+                                    $perantiHTML .= "</ul>";
+
+                                    printf($tdFormat, $rows->id, $rows->nama, $rows->jantina, $rows->tlahir, $rows->peringkat, $rows->program, $rows->alamat, $rows->it, $perantiHTML, $rows->id, $rows->id);
                                 }
                                 ?>
                             </tbody>
                         </table>
-                    </div>
-                    <div class="container-fluid justify-content-start align-items-start mt-2">
-                        <div class="row">
-                            <div class="col-4">
-                                <a class="btn btn-primary" href="<?php echo(BORANG_URL."/borang.php");?>"><i class="fa-solid fa-list"></i><span class="ms-2">Kembali ke borang</span></a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
