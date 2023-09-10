@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 05, 2023 at 04:22 AM
+-- Generation Time: Sep 10, 2023 at 09:26 AM
 -- Server version: 11.1.2-MariaDB
 -- PHP Version: 8.2.10
 
@@ -34,15 +34,22 @@ CREATE TABLE `pelajar` (
   `tlahir` date NOT NULL,
   `peringkat` char(3) NOT NULL,
   `program` char(3) NOT NULL,
-  `alamat` varchar(200) NOT NULL
+  `alamat` varchar(200) NOT NULL,
+  `it` int(11) NOT NULL,
+  `peranti0` varchar(255) NOT NULL,
+  `peranti1` varchar(255) NOT NULL,
+  `peranti2` varchar(255) NOT NULL,
+  `peranti3` varchar(255) NOT NULL,
+  `peranti4` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `pelajar`
 --
 
-INSERT INTO `pelajar` (`id`, `nama`, `jantina`, `tlahir`, `peringkat`, `program`, `alamat`) VALUES
-(7, 'AHMAD AKID', 'lelaki', '2004-02-02', 'DVM', 'KPD', 'Alamat 2');
+INSERT INTO `pelajar` (`id`, `nama`, `jantina`, `tlahir`, `peringkat`, `program`, `alamat`, `it`, `peranti0`, `peranti1`, `peranti2`, `peranti3`, `peranti4`) VALUES
+(7, 'AHMAD AKID', 'lelaki', '2004-02-02', 'DVM', 'KPD', 'Alamat 2', 2, 'smartphone', 'laptop', 'tablet', 'lain', ''),
+(8, 'Iz', 'lelaki', '2023-09-05', 'DVM', 'KPD', 'Alamat 1', 0, 'smartphone', 'laptop', 'tablet', 'lain', '');
 
 -- --------------------------------------------------------
 
@@ -88,7 +95,7 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT for table `pelajar`
 --
 ALTER TABLE `pelajar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
