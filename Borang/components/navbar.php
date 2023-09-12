@@ -27,10 +27,10 @@ require_once(COMPONENTS_DIR . "/header_bootstrap.php"); // Import header
                     <a class="nav-link" href="<?php echo (BORANG_URL . "/senarai.php"); ?>">Senarai</a>
                 </li>
                 <li id="senaraiBtn" class="nav-item">
-                    <a class="nav-link" href="<?php echo (BORANG_URL . "/index.php"); ?>">Log masuk</a>
+                    <a class="nav-link" href="<?php echo (BORANG_URL . "/log_masuk.php"); ?>">Log masuk</a>
                 </li>
                 <li id="senaraiBtn" class="nav-item">
-                    <a class="nav-link" href="<?php echo (BORANG_URL . "/daftar.php"); ?>">Daftar masuk</a>
+                    <a class="nav-link" href="<?php echo (BORANG_URL . "/daftar_borang.php"); ?>">Daftar masuk</a>
                 </li>
             </ul>
         </div>

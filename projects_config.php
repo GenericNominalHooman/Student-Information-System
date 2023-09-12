@@ -15,8 +15,8 @@ define("E-HEALTH_DIR", SITE_DIR."/e-health"); // E-health project subdirectory n
 // E_HEALTH ENDS
 
 // BOARNG BEGINS
-define("BORANG_DIR", SITE_DIR."/DKA3213/Borang"); // Borang project subdirectory name
-define("BORANG_URL", SITE_URL."/DKA3213/Borang"); // Borang project subdirectory name
+define("BORANG_DIR", SITE_DIR."/Student-Information-System/Borang"); // Borang project subdirectory name
+define("BORANG_URL", SITE_URL."/Student-Information-System/Borang"); // Borang project subdirectory name
 // BOARNG ENDS
 
 // MYSQL CONFIG BEGIN
