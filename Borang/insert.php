@@ -25,9 +25,16 @@ $userInputs = [
 ];
 
 // Sanitizes user input
-// array_map(function($userInput){
-//     return empty($userInput) ? null : Sanitize::sanitize($userInput);
-// }, $userInputs);
+array_map(function($userInput){
+    if(is_array($userInput)){
+        // Handle peranti array input
+        return array_map(function($peranti){
+            return empty($peranti) ? null : Sanitize::sanitize($peranti);
+        }, $userInput);
+    }else{
+        return Sanitize::sanitize($userInput);
+    }
+}, $userInputs);
 
 // Check whether user has unfilled input
 foreach($userInputs as $key => $value){
@@ -43,6 +50,7 @@ $peranti1 = "";
 $peranti2 = "";
 $peranti3 = "";
 $peranti4 = "";
+// die(var_dump($userInputs["peranti"]));
 foreach($userInputs["peranti"] as $perkakasan_peranti){
     switch($perkakasan_peranti){
         case "smartphone":
@@ -59,6 +67,7 @@ foreach($userInputs["peranti"] as $perkakasan_peranti){
         break;
     }
 }
+// die($peranti2);
 
 
 // Insert SQL record into borang.pelajar table

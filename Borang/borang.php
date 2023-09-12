@@ -124,19 +124,19 @@ require_once(BORANG_COMPONENTS_DIR . "/config.php"); // Import mysql config
                                                     <div class="col-md-3 col-sm-6">
                                                         <div class="form-check m-4">
                                                             <label for="smartphone" class="form-check-label">Smartphone</label>
-                                                            <input  class="form-check-input" type="checkbox" name="peranti[]" id="smartphone">
+                                                            <input  class="form-check-input" value="smartphone" type="checkbox" name="peranti[]" id="smartphone">
                                                         </div>
                                                         <div class="form-check m-4">
                                                             <label for="laptop" class="form-check-label">Laptop</label>
-                                                            <input  class="form-check-input" type="checkbox" name="peranti[]" id="laptop">
+                                                            <input  class="form-check-input" value="laptop" type="checkbox" name="peranti[]" id="laptop">
                                                         </div>
                                                         <div class="form-check m-4">
                                                             <label for="tablet" class="form-check-label">Tablet</label>
-                                                            <input  class="form-check-input" type="checkbox" name="peranti[]" id="tablet">
+                                                            <input  class="form-check-input" value="tablet" type="checkbox" name="peranti[]" id="tablet">
                                                         </div>
                                                         <div class="form-check m-4">
                                                             <label for="lain" class="form-check-label">Lain-lain</label>
-                                                            <input  class="form-check-input" type="checkbox" name="peranti[]" id="lain">
+                                                            <input  class="form-check-input" value="lain" type="checkbox" name="peranti[]" id="lain">
                                                         </div>
                                                     </div>
                                                 </div>

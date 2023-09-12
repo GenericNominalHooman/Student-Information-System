@@ -57,7 +57,7 @@ require_once(BORANG_COMPONENTS_DIR . "/navbar.php"); // Import navbar
                     <input type="password" class="form-control" id="password" value="" name="password" required>
                 </div>
                 <div class="col-12">
-                    <button id="logMasukBtn" class="btn btn-primary" type="submit">Log Masuk</button>
+                    <button id="logMasukBtn" class="btn btn-primary w-100 p-4" type="submit">Log Masuk</button>
                 </div>
             </form>
         </div>
