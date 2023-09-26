@@ -50,7 +50,7 @@ require_once(BORANG_COMPONENTS_DIR . "/redirect_if_not_admin.php"); // Import he
                                         <td scope='col container-fluid'>
                                             <div class='row'>
                                                 <div class='col-12 m-2'>
-                                                    <a class='btn btn-primary text-nowrap w-100' href='borang_kemaskini.php?id=%s'><i class='fa-solid fa-pencil'></i><span class='ms-2'>Kemaskini</span></a>
+                                                    <a class='btn btn-primary text-nowrap w-100' href='profail.php?id=%s'><i class='fa-solid fa-pencil'></i><span class='ms-2'>Kemaskini</span></a>
                                                 </div>
                                                 <div class='col-12 m-2'>
                                                     <a class='btn btn-danger  text-nowrap w-100' href='buang.php?id=%s' onclick=\"confirm("."'Delete this record?'".")\"><i class='fa-solid fa-trash'></i><span class='ms-2'>Buang</span></a>
