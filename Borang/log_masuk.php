@@ -8,32 +8,33 @@ if (file_exists($projects_config_file)) {
 require_once(BORANG_DIR . "/site_config.php"); // Import site configuration
 require_once(COMPONENTS_DIR . "/header_bootstrap.php"); // Import header
 require_once(BORANG_COMPONENTS_DIR . "/navbar.php"); // Import navbar
+require_once(BORANG_COMPONENTS_DIR . "/redirect_if_not_guest.php"); // Import navbar
 ?>
 
 <!-- CONTENT BEGIN -->
 
 <!-- Jquery begin -->
 <script>
-    $(document).ready(function(){
-        function validate(e){
+    $(document).ready(function() {
+        function validate(e) {
             let username = $("#username").val();
             let password = $("#password").val();
 
             // Check whether username/password is filled out
-            if(username == '' && password == ''){
+            if (username == '' && password == '') {
                 window.alert("Username dan password tidak diisi");
                 return false;
-            }else{
-                if(username == ''){
+            } else {
+                if (username == '') {
                     window.alert("Username tidak diisi");
-                }else if(password == ''){
+                } else if (password == '') {
                     window.alert("Password tidak diisi");
                 }
                 return false;
             }
         }
 
-        $("#logMasukBtn").on("click", function(e){
+        $("#logMasukBtn").on("click", function(e) {
             validate();
         });
     });
@@ -41,9 +42,14 @@ require_once(BORANG_COMPONENTS_DIR . "/navbar.php"); // Import navbar
 <!-- Jquery ends -->
 
 <div class="container-fluid !direction !spacing ">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Sistem Maklumat Pelajar</h1>
+        </div>
+    </div>
     <div class="row justify-content-center mt-4">
         <div class="col-11 col-md-8 m-md-2 p-4 shadow-lg rounded">
-            <form action="auth.php" method="POST" class="row g-3 needs-validation">
+            <form action="log.php" method="POST" class="row g-3 needs-validation">
                 <div class="col-12 text-center">
                     <h2>Log Masuk</h2>
                     <hr>

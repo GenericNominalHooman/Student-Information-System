@@ -6,13 +6,21 @@ require_once(BORANG_DIR . "/site_config.php"); // Import site configuration
 require_once(COMPONENTS_DIR . "/header_bootstrap.php"); // Import header
 require_once(BORANG_COMPONENTS_DIR . "/config.php"); // Import mysql config
 require_once(BORANG_COMPONENTS_DIR . "/navbar.php"); // Import header
+require_once(COMPONENTS_DIR . "/redirect.php"); // Import header
 ?>
 
 <!-- CONTENT BEGIN -->
 
-<body>
+<?php
+    // Redirect student to borang if borang isn't created yet begin 
+    $result = mysqli_query($conn, "SELECT * FROM pelajar WHERE pengguna_id='".$_SESSION["auth"]["id"]."'");
+    if(!mysqli_fetch_assoc($result)){
+        Redirect::redirectGET(BORANG_URL."/borang.php", []);
+    }
+    // Redirect student to borang if borang isn't created yet end
+?>
 
-    <!-- CONTENT BEGIN -->
+<body>
     <div class="container-fluid">
         <div class="row d-flex justify-content-center align-items-center">
             <div class="card col-md-8 shadow-lg m-md-4 p-md-4">

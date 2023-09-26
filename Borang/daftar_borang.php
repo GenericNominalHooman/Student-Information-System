@@ -8,6 +8,8 @@ if (file_exists($projects_config_file)) {
 require_once(BORANG_DIR . "/site_config.php"); // Import site configuration
 require_once(COMPONENTS_DIR . "/header_bootstrap.php"); // Import header
 require_once(BORANG_COMPONENTS_DIR . "/navbar.php"); // Import navbar
+require_once(BORANG_COMPONENTS_DIR . "/auth.php"); // Import auth module
+require_once(BORANG_COMPONENTS_DIR . "/redirect_if_not_guest.php"); // Import auth module
 ?>
 
 <!-- CONTENT BEGIN -->

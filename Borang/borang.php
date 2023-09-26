@@ -18,7 +18,9 @@ require_once(BORANG_COMPONENTS_DIR . "/config.php"); // Import mysql config
     $(document).ready(function() {})
 </script>
 <!-- Jquery Ends -->
-
+<?php
+session_start();
+?>
 <body>
     <!-- CONTENT BEGIN -->
     <div class="container-fluid">

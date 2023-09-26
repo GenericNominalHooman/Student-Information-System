@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // PROJECTS CONFIG BEGIN
 $projects_config_file = $_SERVER["DOCUMENT_ROOT"] . "/projects_config.php";
 if (file_exists($projects_config_file)) {
@@ -6,10 +8,7 @@ if (file_exists($projects_config_file)) {
 }
 // PROJECTS CONFIG ENDS
 require_once(BORANG_DIR . "/site_config.php"); // Import site configuration
-require_once(BORANG_COMPONENTS_DIR . "/config.php"); // Import header
 require_once(COMPONENTS_DIR . "/sanitize.php"); // Import sanitize
-require_once(BORANG_COMPONENTS_DIR . "/config.php"); // Import config
-require_once(COMPONENTS_DIR . "/redirect.php"); // Import redirect
 ?>
 <?php
 class Auth{
@@ -21,36 +20,48 @@ class Auth{
     }
 
     public function register($username, $password, $role){
+        var_dump($username);
+        // FIX SANITIZATION BEGIN
+        // die(var_dump($password));
+        // die(var_dump($role));
+        // die(var_dump(Sanitize::sanitize($role)));
         // Sanitize user input
-        $username = Sanitize::sanitize($username);
-        $password = Sanitize::sanitize($password);
-        $role = Sanitize::sanitize($role);
+        // $username = Sanitize::mysqli_safe($this->conn, Sanitize::sanitize($username));
+        // $password = Sanitize::mysqli_safe($this->conn, Sanitize::sanitize($password));
+        // $role = Sanitize::mysqli_safe($this->conn, Sanitize::sanitize($role));
+        // FIX SANITIZATION END
         
         // Verify input
 
         // Password hashing
-        $password_hash = password_hash($this->conn, $password);
+        $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
         // Add new user entry into DB
-        mysqli_query($this->conn, "INSERT INTO pengguna(username, password_hash, role) VALUES('NULL', '".$password_hash."', '".$role."')");
-
-        // Login user
-        $this->login($username, $password);
+        return mysqli_query($this->conn, "INSERT INTO pengguna(username, password_hash, role) VALUES('".$username."', '".$password_hash."', '".$role."')") ? true : false;
     }
 
     public function login($username, $password){
-        // Sanitize
-        $username = Sanitize::sanitize($username);
-        $password = Sanitize::sanitize($password);
+        // FIX SANITIZATION BEGIN
+        // $username = Sanitize::mysqli_safe($this->conn, Sanitize::sanitize($username));
+        // $password = Sanitize::mysqli_safe($this->conn, Sanitize::sanitize($password));
+        // FIX SANITIZATION END
         
         // Verify with db
-        $password_hash = mysqli_query($this->conn, "SELECT password_hash FROM pengguna WHERE username='".$username."'");
+        $query = mysqli_query($this->conn, "SELECT * FROM pengguna WHERE username='".$username."'");
+        $mysqliResult = mysqli_fetch_assoc($query);
+        $password_hash = $mysqliResult["password_hash"];
+        $role = $mysqliResult["role"];
+        $id = $mysqliResult["id"];
         if(password_verify($password, $password_hash)){
-            // Redirect user
-            Redirect::redirectPOST(BORANG_URL."/borang.php", []);
+            // Set session variables
+            $_SESSION["auth"] = [
+                "username" => $username,
+                "role" => $role,
+                "id" => $id,
+            ];
+            return true;
         }else{
-            // Redirect user to login page with error message
-            Redirect::redirectPOST(BORANG_URL."/login.php", ["msg" => "Kata laluan atau nama pengguna yang anda masukkan salah"]);
+            return false;
         }
 
     }
