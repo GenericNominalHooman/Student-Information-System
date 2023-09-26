@@ -49,7 +49,7 @@ require_once(BORANG_COMPONENTS_DIR . "/redirect_if_not_guest.php"); // Import na
     </div>
     <div class="row justify-content-center mt-4">
         <div class="col-11 col-md-8 m-md-2 p-4 shadow-lg rounded">
-            <form action="index.php" method="POST" class="row g-3 needs-validation">
+            <form action="lencong.php" method="POST" class="row g-3 needs-validation">
                 <div class="col-12 text-center">
                     <h2>Log Masuk</h2>
                     <hr>

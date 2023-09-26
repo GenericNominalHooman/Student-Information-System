@@ -30,7 +30,7 @@ if($authObj->login($_POST["username"], $_POST["password"])){
     }
 }else{
     // Redirecting user w error message
-    Redirect::redirectPOST(BORANG_URL."/borang_profail.php", ["error" => "Gagal mendaftar pengguna"]);
+    Redirect::redirectPOST(BORANG_URL."/index.php", ["error" => "Gagal mendaftar pengguna"]);
 }
 ?>
 <!-- DAFTAR ENDS -->

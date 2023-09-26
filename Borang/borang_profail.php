@@ -8,6 +8,7 @@ if (file_exists($projects_config_file)) {
 require_once(BORANG_DIR . "/site_config.php"); // Import site configuration
 require_once(COMPONENTS_DIR . "/header_bootstrap.php"); // Import header
 require_once(BORANG_COMPONENTS_DIR . "/navbar.php"); // Import header
+require_once(COMPONENTS_DIR . "/redirect.php"); // Import header
 require_once(BORANG_COMPONENTS_DIR . "/config.php"); // Import mysql config
 ?>
 
@@ -19,7 +20,11 @@ require_once(BORANG_COMPONENTS_DIR . "/config.php"); // Import mysql config
 </script>
 <!-- Jquery Ends -->
 <?php
+// Check whether current user already has a borang form
 session_start();
+if(mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM pelajar WHERE pengguna_id='".$_SESSION["auth"]["id"]."'"))){
+    Redirect::redirectGET(BORANG_URL."/senarai.php", []);
+}
 ?>
 <body>
     <!-- CONTENT BEGIN -->
