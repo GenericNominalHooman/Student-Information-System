@@ -72,12 +72,10 @@ foreach($userInputs["peranti"] as $perkakasan_peranti){
 
 
 // Insert SQL record into borang.pelajar table
-$mysqlStatement = "INSERT INTO pelajar(id, nama, jantina, tlahir, peringkat, program, alamat, peranti0, peranti1, peranti2, peranti3, peranti4, it, pengguna_id) VALUES(NULL, '".$userInputs["nama"]."', '".$userInputs["jantina"]."', '".$userInputs["tlahir"]."', '".$userInputs["peringkat"]."', '".$userInputs["program"]."', '".$userInputs["alamat"]."', peranti0='".$peranti0."', peranti1='".$peranti1."', peranti2='".$peranti2."', peranti3='".$peranti3."', peranti4='".$peranti4."', it='".$userInputs["it"]."', pengguna_id='".$_SESSION["auth"]["id"]."')";
-die($mysqlStatement);
+$mysqlStatement = "INSERT INTO pelajar(nama, jantina, tlahir, peringkat, program, alamat, peranti0, peranti1, peranti2, peranti3, peranti4, it, pengguna_id) VALUES('".$userInputs["nama"]."', '".$userInputs["jantina"]."', '".$userInputs["tlahir"]."', '".$userInputs["peringkat"]."', '".$userInputs["program"]."', '".$userInputs["alamat"]."', '".$peranti0."', '".$peranti1."', '".$peranti2."', '".$peranti3."', '".$peranti4."', '".$userInputs["it"]."', '".$_SESSION["auth"]["id"]."')";
+var_dump($mysqlStatement);
 if(!mysqli_query($conn, $mysqlStatement)){
-    // var_dump($mysqlStatement);
-    die($mysqlStatement);
-    // die("MYSQL error occured: ".mysqli_error($conn)."<br>".$mysqlStatement);
+    die("MYSQL error occured: ".mysqli_error($conn)."<br>".$mysqlStatement);
 }else{
     header("Location: ".BORANG_URL."/senarai.php");
 }

@@ -20,7 +20,7 @@ if(isset($_SESSION["auth"])){
             Redirect::redirectGET(BORANG_URL."/senarai.php", []);
         break;
         case "student":
-            Redirect::redirectGET(BORANG_URL."/profail.php", ["username" => $_SESSION["auth"]["role"]]);
+            Redirect::redirectGET(BORANG_URL."/profail.php", ["id" => $_SESSION["auth"]["id"]]);
         break;
     }
 }

@@ -34,7 +34,7 @@ require_once(COMPONENTS_DIR . "/redirect.php"); // Import header
                             <div class="row">
                                 <?php
                                 //  Fetch pelajar data row from ID
-                                $result = mysqli_query($conn, "SELECT * FROM pelajar WHERE id='" . $_GET["id"] . "'");
+                                $result = mysqli_query($conn, "SELECT * FROM pelajar WHERE pengguna_id='" . $_GET["id"] . "'");
                                 $pelajarData = mysqli_fetch_object($result);
                                 ?>
                                 <form action="<?php echo htmlspecialchars(BORANG_URL . "/kemaskini.php"); ?>" method="get">
