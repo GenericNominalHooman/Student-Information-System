@@ -86,7 +86,7 @@ require_once(BORANG_COMPONENTS_DIR . "/redirect_if_not_admin_or_lecturer.php"); 
                                     }
                                     $perantiHTML .= "</ul>";
 
-                                    printf($tdFormat, $rows->id, $rows->nama, $rows->jantina, $rows->tlahir, $rows->peringkat, $rows->program, $rows->alamat, $rows->it, $perantiHTML, $rows->id, $rows->id);
+                                    printf($tdFormat, $rows->pengguna_id, $rows->nama, $rows->jantina, $rows->tlahir, $rows->peringkat, $rows->program, $rows->alamat, $rows->it, $perantiHTML, $rows->pengguna_id, $rows->pengguna_id);
                                 }
                                 ?>
                             </tbody>

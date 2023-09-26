@@ -22,7 +22,7 @@ require_once(BORANG_COMPONENTS_DIR . "/config.php"); // Import mysql config
 <?php
 // Check whether current user already has a borang form
 session_start();
-if(mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM pelajar WHERE pengguna_id='".$_SESSION["auth"]["id"]."'"))){
+if(!mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM pelajar WHERE pengguna_id='".$_SESSION["auth"]["id"]."'"))){ // Send user to 
     Redirect::redirectGET(BORANG_URL."/senarai.php", []);
 }
 ?>

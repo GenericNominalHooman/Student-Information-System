@@ -13,9 +13,11 @@ require_once(COMPONENTS_DIR . "/redirect.php"); // Import header
 
 <?php
     // Redirect student to borang if borang isn't created yet begin 
-    $result = mysqli_query($conn, "SELECT * FROM pelajar WHERE pengguna_id='".$_SESSION["auth"]["id"]."'");
-    if(!mysqli_fetch_assoc($result)){
-        Redirect::redirectGET(BORANG_URL."/borang_profail.php", []);
+    if($_SESSION["auth"]["role"] == "student"){
+        $result = mysqli_query($conn, "SELECT * FROM pelajar WHERE pengguna_id='".$_SESSION["auth"]["id"]."'");
+        if(!mysqli_fetch_assoc($result)){
+            Redirect::redirectGET(BORANG_URL."/borang_profail.php", []);
+        }
     }
     // Redirect student to borang if borang isn't created yet end
 ?>
