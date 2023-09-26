@@ -23,15 +23,10 @@ class Auth
     public function register($username, $password, $role)
     {
         var_dump($username);
-        // FIX SANITIZATION BEGIN
-        // die(var_dump($password));
-        // die(var_dump($role));
-        // die(var_dump(Sanitize::sanitize($role)));
         // Sanitize user input
-        // $username = Sanitize::mysqli_safe($this->conn, Sanitize::sanitize($username));
-        // $password = Sanitize::mysqli_safe($this->conn, Sanitize::sanitize($password));
-        // $role = Sanitize::mysqli_safe($this->conn, Sanitize::sanitize($role));
-        // FIX SANITIZATION END
+        $username = Sanitize::mysqli_safe($this->conn, Sanitize::sanitize($username));
+        $password = Sanitize::mysqli_safe($this->conn, Sanitize::sanitize($password));
+        $role = Sanitize::mysqli_safe($this->conn, Sanitize::sanitize($role));
 
         // Verify input
 
@@ -44,10 +39,9 @@ class Auth
 
     public function login($username, $password)
     {
-        // FIX SANITIZATION BEGIN
-        // $username = Sanitize::mysqli_safe($this->conn, Sanitize::sanitize($username));
-        // $password = Sanitize::mysqli_safe($this->conn, Sanitize::sanitize($password));
-        // FIX SANITIZATION END
+        // Sanitize user input
+        $username = Sanitize::mysqli_safe($username, $this->conn);
+        $password = Sanitize::mysqli_safe($password, $this->conn);
 
         // Verify with db
         $query = mysqli_query($this->conn, "SELECT * FROM pengguna WHERE username='" . $username . "'");
