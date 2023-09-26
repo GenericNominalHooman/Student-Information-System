@@ -13,6 +13,6 @@ require_once(COMPONENTS_DIR . "/redirect.php"); // Import redirect
 <?php
 session_start();
 session_destroy();
-Redirect::redirectGET(BORANG_URL."/log_masuk.php", []);
+Redirect::redirectGET(BORANG_URL."/index.php", []);
 ?>
 <!-- LOG KELUAR BEGIN -->

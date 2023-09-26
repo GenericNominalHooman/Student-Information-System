@@ -103,7 +103,7 @@ require_once(BORANG_COMPONENTS_DIR . "/redirect_if_not_guest.php"); // Import au
                     </div>
                 </div>
                 <div class="col-12">
-                    <p class="text-muted">Anda sudah mempunyai akaun? <a href="<?php echo(BORANG_URL."/log_masuk.php");?>">Klik di sini</a></p>
+                    <p class="text-muted">Anda sudah mempunyai akaun? <a href="<?php echo(BORANG_URL."/index.php");?>">Klik di sini</a></p>
                 </div>
 
                 <div class="col-12">

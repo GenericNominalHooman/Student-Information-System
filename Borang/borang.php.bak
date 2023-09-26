@@ -32,7 +32,7 @@ if (file_exists($projects_config_file)) {
                         </div>
                         <div class="card-text container-fluid">
                             <div class="row">
-                                <form action="<?php echo (BORANG_URL."/insert.php"); ?>" method="post">
+                                <form action="<?php echo (BORANG_URL."/tambah_rekod_pelajar.php"); ?>" method="post">
                                     <div class="col-12 text-start">
                                         <div class="form-floating m-4">
                                             <input type="text" name="nama" id="nama" class="form-control"

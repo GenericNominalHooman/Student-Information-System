@@ -4,11 +4,12 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/projects_config.php"); // Import projec
 require_once(BORANG_DIR."/site_config.php"); // Import site configuration
 require_once(BORANG_COMPONENTS_DIR."/config.php"); // Import site component
 require_once(COMPONENTS_DIR."/sanitize.php"); // Import project component
+session_start();
 // Import ends
 
 // Redirect user if access through get
 if($_SERVER["REQUEST_METHOD"] == "GET"){
-    header("Location: ".BORANG_URL."/borang.php");
+    header("Location: ".BORANG_URL."/borang_profail.php");
 }
 
 // Merge user input into an array to apply batch processing
@@ -40,7 +41,7 @@ array_map(function($userInput){
 foreach($userInputs as $key => $value){
     if(is_null($value)){ // User left out a field
         // HANDLE ERROR MESASGE HERE
-        header("Location: ".BORANG_URL."/borang.php");
+        header("Location: ".BORANG_URL."/borang_profail.php");
     }
 }
 
@@ -71,9 +72,12 @@ foreach($userInputs["peranti"] as $perkakasan_peranti){
 
 
 // Insert SQL record into borang.pelajar table
-$mysqlStatement = "INSERT INTO pelajar(id, nama, jantina, tlahir, peringkat, program, alamat, peranti0, peranti1, peranti2, peranti3, peranti4, it) VALUES(NULL, '".$userInputs["nama"]."', '".$userInputs["jantina"]."', '".$userInputs["tlahir"]."', '".$userInputs["peringkat"]."', '".$userInputs["program"]."', '".$userInputs["alamat"]."', peranti0='".$peranti0."', peranti1='".$peranti1."', peranti2='".$peranti2."', peranti3='".$peranti3."', peranti4='".$peranti4."', it='".$userInputs["it"]."')";
+$mysqlStatement = "INSERT INTO pelajar(id, nama, jantina, tlahir, peringkat, program, alamat, peranti0, peranti1, peranti2, peranti3, peranti4, it, pengguna_id) VALUES(NULL, '".$userInputs["nama"]."', '".$userInputs["jantina"]."', '".$userInputs["tlahir"]."', '".$userInputs["peringkat"]."', '".$userInputs["program"]."', '".$userInputs["alamat"]."', peranti0='".$peranti0."', peranti1='".$peranti1."', peranti2='".$peranti2."', peranti3='".$peranti3."', peranti4='".$peranti4."', it='".$userInputs["it"]."', pengguna_id='".$_SESSION["auth"]["id"]."')";
+die($mysqlStatement);
 if(!mysqli_query($conn, $mysqlStatement)){
-    die("MYSQL error occured: ".mysqli_error($conn));
+    // var_dump($mysqlStatement);
+    die($mysqlStatement);
+    // die("MYSQL error occured: ".mysqli_error($conn)."<br>".$mysqlStatement);
 }else{
     header("Location: ".BORANG_URL."/senarai.php");
 }

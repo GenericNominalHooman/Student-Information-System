@@ -36,7 +36,7 @@ if($authObj->register($_POST["username"], $_POST["password"], $_POST["role"])){
     }
 }else{
     // Redirecting user w error message
-    Redirect::redirectPOST(BORANG_URL."/borang.php", ["error" => "Gagal mendaftar pengguna"]);
+    Redirect::redirectPOST(BORANG_URL."/borang_profail.php", ["error" => "Gagal mendaftar pengguna"]);
 }
 ?>
 <!-- DAFTAR ENDS -->

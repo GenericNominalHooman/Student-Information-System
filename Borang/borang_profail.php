@@ -34,7 +34,7 @@ session_start();
                         </div>
                         <div class="card-text container-fluid">
                             <div class="row">
-                                <form action="<?php echo (BORANG_URL . "/insert.php"); ?>" method="post">
+                                <form action="<?php echo (BORANG_URL . "/tambah_rekod_pelajar.php"); ?>" method="post">
                                     <div class="col-12 text-start">
                                         <fieldset>
                                             <legend>Maklumat Diri</legend>

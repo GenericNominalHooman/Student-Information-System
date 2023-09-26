@@ -16,10 +16,10 @@ require_once(COMPONENTS_DIR . "/redirect.php"); // Import redirect
 session_start();
 if(isset($_SESSION["auth"])){
     if($_SESSION["auth"]["role"] != "admin"){
-        Redirect::redirectGET(BORANG_URL."/log_masuk.php", []);
+        Redirect::redirectGET(BORANG_URL."/index.php", []);
     }
 }else{
-    Redirect::redirectGET(BORANG_URL."/log_masuk.php", []);
+    Redirect::redirectGET(BORANG_URL."/index.php", []);
 }
 ?>
 <!-- ADMIN REDIRECT ENDS -->

@@ -15,7 +15,7 @@ require_once(COMPONENTS_DIR . "/redirect.php"); // Import header
     // Redirect student to borang if borang isn't created yet begin 
     $result = mysqli_query($conn, "SELECT * FROM pelajar WHERE pengguna_id='".$_SESSION["auth"]["id"]."'");
     if(!mysqli_fetch_assoc($result)){
-        Redirect::redirectGET(BORANG_URL."/borang.php", []);
+        Redirect::redirectGET(BORANG_URL."/borang_profail.php", []);
     }
     // Redirect student to borang if borang isn't created yet end
 ?>
@@ -197,7 +197,7 @@ require_once(COMPONENTS_DIR . "/redirect.php"); // Import header
                                                     <button type="submit" name="hantar" class="btn btn-primary w-100 shadow-lg py-4"><i class="fa-solid fa-floppy-disk"></i><span class="ms-2">Kemaskini</span></button>
                                                 </div>
                                                 <div class="col-12 col-lg-4 p-2">
-                                                    <a class="btn btn-danger w-100 shadow-lg py-4" href="<?php echo (BORANG_URL . "/delete.php?id=" . $_GET["id"]); ?>"><i class="fa-solid fa-trash"></i><span class="ms-2">Buang</span></a>
+                                                    <a class="btn btn-danger w-100 shadow-lg py-4" href="<?php echo (BORANG_URL . "/buang.php?id=" . $_GET["id"]); ?>"><i class="fa-solid fa-trash"></i><span class="ms-2">Buang</span></a>
                                                 </div>
                                                 <div class="col-12 col-lg-4 p-2">
                                                     <button type="reset" class="btn btn-secondary w-100 shadow-lg py-4"><i class="fa-solid fa-arrow-rotate-right"></i><span class="ms-2">Batal</span></button>
