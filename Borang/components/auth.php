@@ -24,9 +24,9 @@ class Auth
     {
         var_dump($username);
         // Sanitize user input
-        $username = Sanitize::mysqli_safe($this->conn, Sanitize::sanitize($username));
-        $password = Sanitize::mysqli_safe($this->conn, Sanitize::sanitize($password));
-        $role = Sanitize::mysqli_safe($this->conn, Sanitize::sanitize($role));
+        $username = Sanitize::mysqli_safe(Sanitize::sanitize($username), $this->conn);
+        $password = Sanitize::mysqli_safe(Sanitize::sanitize($password), $this->conn);
+        $role = Sanitize::mysqli_safe(Sanitize::sanitize($role), $this->conn);
 
         // Verify input
 

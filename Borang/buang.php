@@ -11,7 +11,7 @@ require_once(BORANG_COMPONENTS_DIR."/config.php"); // Import mysql config
 // Check whether row to delete is set
 if(!empty($_GET["id"])){
     // Delete db row
-    $statement = "DELETE FROM pelajar WHERE id='".$_GET["id"]."'";
+    $statement = "DELETE FROM pelajar WHERE pengguna_id='".$_GET["id"]."'";
     $isDeleted = mysqli_query($conn, $statement);
 
     if($isDeleted){

@@ -6,7 +6,7 @@ require_once(COMPONENTS_DIR."/header_bootstrap.php"); // Import header
 require_once(BORANG_COMPONENTS_DIR."/config.php"); // Import mysql config
 require_once("select.php");
 require_once(BORANG_COMPONENTS_DIR . "/navbar.php"); // Import header
-require_once(BORANG_COMPONENTS_DIR . "/redirect_if_not_admin.php"); // Import header
+require_once(BORANG_COMPONENTS_DIR . "/redirect_if_not_admin_or_lecturer.php"); // Import header
 // IMPORT END
 ?>
 

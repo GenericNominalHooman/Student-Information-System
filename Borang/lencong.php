@@ -24,6 +24,9 @@ if($authObj->login($_POST["username"], $_POST["password"])){
         case "student":
             Redirect::redirectGET(BORANG_URL."/borang_profail.php", ["id" => $_SESSION["auth"]["id"]]);
         break;
+        case "lecturer":
+            Redirect::redirectGET(BORANG_URL."/senarai.php", []);
+        break;
         default:
             Redirect::redirectPOST(BORANG_URL."/index.php", []);
         break;

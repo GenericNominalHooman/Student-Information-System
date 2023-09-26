@@ -27,11 +27,14 @@ if($authObj->register($_POST["username"], $_POST["password"], $_POST["role"])){
         case "admin":
             Redirect::redirectPOST(BORANG_URL."/senarai.php", []);
         break;
+        case "lecturer":
+            Redirect::redirectPOST(BORANG_URL."/senarai.php", []);
+        break;
         case "student":
             Redirect::redirectGET(BORANG_URL."/profail.php", ["id" => $_SESSION["auth"]["id"]]);
         break;
         default:
-            Redirect::redirectPOST(BORANG_URL."/log.php", []);
+            Redirect::redirectPOST(BORANG_URL."/borang_profail.php", []);
         break;
     }
 }else{

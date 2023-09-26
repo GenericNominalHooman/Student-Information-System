@@ -54,12 +54,13 @@ if(!empty($_GET["id"])){
     }
     
     // Update db row
-    $statement = "UPDATE pelajar SET nama='".$nama."', jantina='".$jantina."', tlahir='".$tlahir."', peringkat='".$peringkat."', program='".$program."', alamat='".$alamat."', peranti0='".$peranti0."', peranti1='".$peranti1."', peranti2='".$peranti2."', peranti3='".$peranti3."', peranti4='".$peranti4."', it='".$it."'  WHERE id='".$_GET["id"]."'";
+    $statement = "UPDATE pelajar SET nama='".$nama."', jantina='".$jantina."', tlahir='".$tlahir."', peringkat='".$peringkat."', program='".$program."', alamat='".$alamat."', peranti0='".$peranti0."', peranti1='".$peranti1."', peranti2='".$peranti2."', peranti3='".$peranti3."', peranti4='".$peranti4."', it='".$it."'  WHERE pengguna_id='".$_GET["id"]."'";
+    // die(var_dump($statement));   
     // die($peranti1."<br>".$statement);
     $isUpdated = mysqli_query($conn, $statement);
 
     if($isUpdated){
-        header("Location: senarai.php"); // Redirect the user to senarai.php if successfully deleted
+        header("Location: senarai.php"); // Redirect the user to senarai.php if successfully entry is successfully manipulated
     }else{
         echo("Error occured: ".mysqli_error($conn));
     }
