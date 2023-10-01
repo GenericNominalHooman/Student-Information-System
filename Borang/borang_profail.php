@@ -160,7 +160,7 @@ session_start();
                                                     <button type="submit" name="hantar" class="btn btn-primary w-100 shadow-lg py-4"><i class="fa-solid fa-paper-plane"></i><span class="ms-2">Hantar</span></button>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <button type="reset" name="reset" class="btn btn-secondary w-100 shadow-lg py-4"><i class="fa-solid fa-arrow-rotate-right"></i><span class="ms-2">Batal</span></button>
+                                                    <button type="reset" name="reset" class="btn btn-secondary w-100 shadow-lg py-4"><i class="fa-solid fa-arrow-rotate-right"></i><span class="ms-2">Isi Semula</span></button>
                                                 </div>
                                             </div>
                                         </div>
