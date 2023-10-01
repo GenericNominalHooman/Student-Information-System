@@ -26,7 +26,7 @@ session_start();
 <body>
     <!-- CONTENT BEGIN -->
     <div class="container-fluid">
-        <div class="row d-flex justify-content-center align-items-center">
+            <div class="row d-flex justify-content-center align-items-center">
             <div class="card col-md-8 shadow-lg m-md-4 p-md-4">
                 <div class="col-12 text-center">
                     <div class="card-body">
