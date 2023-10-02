@@ -48,6 +48,14 @@ session_start();
                                                 <input required type="text" name="no_kp" id="no_kp" class="form-control" placeholder="No Kad Pengenalan Pelajar">
                                                 <label for="no_kp">No Kad Pengenalan Pelajar</label>
                                             </div>
+                                            <div class="form-floating m-4">
+                                                <input required type="number" min="0" step="0.1" name="berat" id="berat" class="form-control" placeholder="Berat(Kg)">
+                                                <label for="berat">Berat(Kg)</label>
+                                            </div>
+                                            <div class="form-floating m-4">
+                                                <input required type="number" min="0" step="0.1" name="tinggi" id="tinggi" class="form-control" placeholder="Tinggi(m)">
+                                                <label for="tinggi">Tinggi(m)</label>
+                                            </div>
                                             <div class="form-check">
                                                 <label class="radio-inline">
                                                     Jantina:

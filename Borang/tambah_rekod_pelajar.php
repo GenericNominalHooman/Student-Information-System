@@ -23,6 +23,8 @@ $userInputs = [
     "alamat" => empty($_POST["alamat"]) ? null : $_POST["alamat"],
     "peranti" => empty($_POST["peranti"]) ? null : $_POST["peranti"],
     "it" => empty($_POST["it"]) ? null : $_POST["it"],
+    "berat" => empty($_POST["berat"]) ? null : $_POST["berat"],
+    "tinggi" => empty($_POST["tinggi"]) ? null : $_POST["tinggi"],
 ];
 
 // Sanitizes user input
