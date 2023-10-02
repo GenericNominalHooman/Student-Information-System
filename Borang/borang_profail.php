@@ -41,7 +41,7 @@ session_start();
                                         <fieldset>
                                             <legend>Maklumat Diri</legend>
                                             <div class="form-floating m-4">
-                                                <input required type="text" name="nama" id="nama" class="form-control" placeholder="Nama Pelajar">
+                                                <input required type="text" name="nama" id="nama" class="form-control" placeholder="Nama Pelajar" value="<?php echo(isset($_SESSION["auth"]) ? $_SESSION["auth"]["username"] : "");?>" <?php echo(isset($_SESSION["auth"]) ? "disabled" : "")?>>
                                                 <label for="nama">Nama Pelajar</label>
                                             </div>
                                             <div class="form-floating m-4">

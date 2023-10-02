@@ -16,7 +16,7 @@ require_once(COMPONENTS_DIR . "/header_bootstrap.php"); // Import header
 $loggedIn = false;
 session_start();
 if (isset($_SESSION["auth"])) {
-    $loggedIn = true;
+    $loggedIn = $_SESSION["auth"]["role"];
 }
 // Display navbar content based on user authenthication state ends
 ?>
@@ -38,7 +38,10 @@ if (isset($_SESSION["auth"])) {
                                 <a class="nav-link <?php echo (!$loggedIn) ? "d-none" : null; ?>" aria-current="page" href="<?php echo (BORANG_URL . "/borang_profail.php"); ?>">Borang</a>
                             </li>
                             <li id="senaraiBtn" class="nav-item">
-                                <a class="nav-link <?php echo (!$loggedIn) ? "d-none" : null; ?>" href="<?php echo (BORANG_URL . "/senarai.php"); ?>">Senarai</a>
+                                <a class="nav-link <?php echo ($loggedIn == "student") ? null : "d-none"; ?>" href="<?php echo (BORANG_URL . "/profail.php?id=".$_SESSION["auth"]["id"]); ?>">Kemaskini</a>
+                            </li>
+                            <li id="senaraiBtn" class="nav-item">
+                                <a class="nav-link <?php echo ($loggedIn == "admin") ? null : "d-none"; ?>" href="<?php echo (BORANG_URL . "/senarai.php"); ?>">Senarai</a>
                             </li>
                             <li id="senaraiBtn" class="nav-item">
                                 <a class="nav-link <?php echo ($loggedIn) ? "d-none" : null; ?>" href="<?php echo (BORANG_URL . "/index.php"); ?>">Log masuk</a>
