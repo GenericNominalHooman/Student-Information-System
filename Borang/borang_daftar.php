@@ -18,6 +18,7 @@ require_once(BORANG_COMPONENTS_DIR . "/redirect_if_not_guest.php"); // Import au
 <script>
     $(document).ready(function() {
         function validate(e) {
+            
             let username = $("#username").val();
             let password = $("#password").val();
             let password_confirmation = $("#password_confirmation").val();
