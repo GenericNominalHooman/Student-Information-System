@@ -74,7 +74,7 @@ foreach($userInputs["peranti"] as $perkakasan_peranti){
 
 
 // Insert SQL record into borang.pelajar table
-$mysqlStatement = "INSERT INTO pelajar(nama, jantina, tlahir, peringkat, program, alamat, peranti0, peranti1, peranti2, peranti3, peranti4, it, pengguna_id) VALUES('".$userInputs["nama"]."', '".$userInputs["jantina"]."', '".$userInputs["tlahir"]."', '".$userInputs["peringkat"]."', '".$userInputs["program"]."', '".$userInputs["alamat"]."', '".$peranti0."', '".$peranti1."', '".$peranti2."', '".$peranti3."', '".$peranti4."', '".$userInputs["it"]."', '".$_SESSION["auth"]["id"]."')";
+$mysqlStatement = "INSERT INTO pelajar(nama, jantina, tlahir, peringkat, program, alamat, peranti0, peranti1, peranti2, peranti3, peranti4, it, pengguna_id, berat, tinggi) VALUES('".$userInputs["nama"]."', '".$userInputs["jantina"]."', '".$userInputs["tlahir"]."', '".$userInputs["peringkat"]."', '".$userInputs["program"]."', '".$userInputs["alamat"]."', '".$peranti0."', '".$peranti1."', '".$peranti2."', '".$peranti3."', '".$peranti4."', '".$userInputs["it"]."', '".$_SESSION["auth"]["id"]."'), '".$userInputs["berat"]."', '".$userInputs["tinggi"]."'";
 var_dump($mysqlStatement);
 if(!mysqli_query($conn, $mysqlStatement)){
     die("MYSQL error occured: ".mysqli_error($conn)."<br>".$mysqlStatement);
