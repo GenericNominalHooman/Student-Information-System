@@ -12,14 +12,14 @@ require_once(COMPONENTS_DIR . "/redirect.php"); // Import header
 <!-- CONTENT BEGIN -->
 
 <?php
-    // Redirect student to borang if borang isn't created yet begin 
-    if($_SESSION["auth"]["role"] == "student"){
-        $result = mysqli_query($conn, "SELECT * FROM pelajar WHERE pengguna_id='".$_SESSION["auth"]["id"]."'");
-        if(!mysqli_fetch_assoc($result)){
-            Redirect::redirectGET(BORANG_URL."/borang_profail.php", []);
-        }
+// Redirect student to borang if borang isn't created yet begin 
+if ($_SESSION["auth"]["role"] == "student") {
+    $result = mysqli_query($conn, "SELECT * FROM pelajar WHERE pengguna_id='" . $_SESSION["auth"]["id"] . "'");
+    if (!mysqli_fetch_assoc($result)) {
+        Redirect::redirectGET(BORANG_URL . "/borang_profail.php", []);
     }
-    // Redirect student to borang if borang isn't created yet end
+}
+// Redirect student to borang if borang isn't created yet end
 ?>
 
 <body>
@@ -47,6 +47,14 @@ require_once(COMPONENTS_DIR . "/redirect.php"); // Import header
                                                 <input type="text" name="id" id="id" class="d-none" value="<?php echo ($_GET["id"]); ?>">
                                                 <input required type="text" name="nama" id="nama" class="form-control" placeholder="Nama Pelajar" value="<?php echo ($pelajarData->nama); ?>">
                                                 <label for="nama">Nama Pelajar</label>
+                                            </div>
+                                            <div class="form-floating m-4">
+                                                <input required type="number" min="0" step="0.1" name="berat" id="berat" class="form-control" placeholder="Berat(Kg)" value="<?php echo($pelajarData->berat)?>">
+                                                <label for="berat">Berat(Kg)</label>
+                                            </div>
+                                            <div class="form-floating m-4">
+                                                <input required type="number" min="0" step="0.1" name="tinggi" id="tinggi" class="form-control" placeholder="Tinggi(m)" value="<?php echo($pelajarData->tinggi)?>">
+                                                <label for="tinggi">Tinggi(m)</label>
                                             </div>
                                             <div class="form-check">
                                                 <label class="radio-inline">
@@ -126,12 +134,12 @@ require_once(COMPONENTS_DIR . "/redirect.php"); // Import header
                                             <div class="form-group m-4">
                                                 <label id="it_label" for="it" class="form-label">Kemahiran ICT(5): </label>
                                                 <input min="0" step="1" max="10" <?php
-                                                    if(!empty($pelajarData->it)){
-                                                        echo("value='".$pelajarData->it."'");
-                                                    }else{
-                                                        echo("value=\"0\"");
-                                                    }
-                                                ?> required type="range" name="it" class="form-control-range" id="it" placeholder="Kemahiran ICT">
+                                                                                    if (!empty($pelajarData->it)) {
+                                                                                        echo ("value='" . $pelajarData->it . "'");
+                                                                                    } else {
+                                                                                        echo ("value=\"0\"");
+                                                                                    }
+                                                                                    ?> required type="range" name="it" class="form-control-range" id="it" placeholder="Kemahiran ICT">
                                             </div>
                                             <script>
                                                 // UPDATE KEMAHIRAN ICT COUNTER BEGIN
@@ -155,34 +163,34 @@ require_once(COMPONENTS_DIR . "/redirect.php"); // Import header
                                                             <div class="form-check m-4">
                                                                 <label for="smartphone" class="form-check-label">Smartphone</label>
                                                                 <input value="smartphone" class="form-check-input" type="checkbox" name="peranti[]" id="smartphone" <?php
-                                                                    if(!empty($pelajarData->peranti0)){
-                                                                        echo("checked");
-                                                                    }
-                                                                ?>>
+                                                                                                                                                                    if (!empty($pelajarData->peranti0)) {
+                                                                                                                                                                        echo ("checked");
+                                                                                                                                                                    }
+                                                                                                                                                                    ?>>
                                                             </div>
                                                             <div class="form-check m-4">
                                                                 <label for="laptop" class="form-check-label">Laptop</label>
                                                                 <input value="laptop" class="form-check-input" type="checkbox" name="peranti[]" id="laptop" <?php
-                                                                    if(!empty($pelajarData->peranti1)){
-                                                                        echo("checked");
-                                                                    }
-                                                                ?>>
+                                                                                                                                                            if (!empty($pelajarData->peranti1)) {
+                                                                                                                                                                echo ("checked");
+                                                                                                                                                            }
+                                                                                                                                                            ?>>
                                                             </div>
                                                             <div class="form-check m-4">
                                                                 <label for="tablet" class="form-check-label">Tablet</label>
                                                                 <input value="tablet" class="form-check-input" type="checkbox" name="peranti[]" id="tablet" <?php
-                                                                    if(!empty($pelajarData->peranti2)){
-                                                                        echo("checked");
-                                                                    }
-                                                                ?>>
+                                                                                                                                                            if (!empty($pelajarData->peranti2)) {
+                                                                                                                                                                echo ("checked");
+                                                                                                                                                            }
+                                                                                                                                                            ?>>
                                                             </div>
                                                             <div class="form-check m-4">
                                                                 <label for="lain" class="form-check-label">Lain-lain</label>
                                                                 <input value="lain" class="form-check-input" type="checkbox" name="peranti[]" id="lain" <?php
-                                                                    if(!empty($pelajarData->peranti3)){
-                                                                        echo("checked");
-                                                                    }
-                                                                ?>>
+                                                                                                                                                        if (!empty($pelajarData->peranti3)) {
+                                                                                                                                                            echo ("checked");
+                                                                                                                                                        }
+                                                                                                                                                        ?>>
                                                             </div>
                                                         </div>
                                                     </div>

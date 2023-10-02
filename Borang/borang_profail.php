@@ -10,6 +10,25 @@ require_once(COMPONENTS_DIR . "/header_bootstrap.php"); // Import header
 require_once(BORANG_COMPONENTS_DIR . "/navbar.php"); // Import header
 require_once(COMPONENTS_DIR . "/redirect.php"); // Import header
 require_once(BORANG_COMPONENTS_DIR . "/config.php"); // Import mysql config
+
+// Redirect to lencong.php if form field is filled or not student start
+if(isset($_SESSION["auth"])){
+    if($_SESSION["auth"]["role"] == "student"){
+
+        $query = "SELECT COUNT(*) AS rekod_pelajar FROM pelajar WHERE pengguna_id='".$_SESSION["auth"]["id"]."'";
+        $result = mysqli_query($conn, $query);
+        // die(var_dump(mysqli_fetch_assoc($result)));
+        if(mysqli_fetch_assoc($result)["rekod_pelajar"] > 0){ // Rediretc if student already has a form
+            Redirect::redirectGET(BORANG_URL."/profail.php", ["id" => $_SESSION["auth"]["id"]]);
+        }
+        
+    }else{ // Rediretc if user isn't student
+        Redirect::redirectGET(BORANG_URL."/lencong.php", []);
+    }
+}else{ // Rediretc if user is guest
+    Redirect::redirectGET(BORANG_URL."/lencong.php", []);
+}
+// Redirect to lencong.php if form field is filled or not student ends
 ?>
 
 <!-- CONTENT BEGIN -->
@@ -41,7 +60,7 @@ session_start();
                                         <fieldset>
                                             <legend>Maklumat Diri</legend>
                                             <div class="form-floating m-4">
-                                                <input required type="text" name="nama" id="nama" class="form-control" placeholder="Nama Pelajar" value="<?php echo(isset($_SESSION["auth"]) ? $_SESSION["auth"]["username"] : "");?>" <?php echo(isset($_SESSION["auth"]) ? "disabled" : "")?>>
+                                                <input required type="text" name="nama" id="nama" class="form-control" placeholder="Nama Pelajar" value="<?php echo(isset($_SESSION["auth"]) ? $_SESSION["auth"]["username"] : "");?>" <?php echo(isset($_SESSION["auth"]) ? "readonly" : "")?>>
                                                 <label for="nama">Nama Pelajar</label>
                                             </div>
                                             <div class="form-floating m-4">
