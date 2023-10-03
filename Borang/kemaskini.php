@@ -28,6 +28,8 @@ if(!empty($_GET["id"])){
     $program = empty($_GET["program"]) ? getDefaultColumnValue($conn, $_GET["id"], "program") : $_GET["program"];
     $alamat = empty($_GET["alamat"]) ? getDefaultColumnValue($conn, $_GET["id"], "alamat") : $_GET["alamat"];
     $it = empty($_GET["it"]) ? getDefaultColumnValue($conn, $_GET["id"], "it") : $_GET["it"];
+    $berat = empty($_GET["berat"]) ? getDefaultColumnValue($conn, $_GET["id"], "berat") : $_GET["berat"];
+    $tinggi = empty($_GET["tinggi"]) ? getDefaultColumnValue($conn, $_GET["id"], "tinggi") : $_GET["tinggi"];
     $peranti = empty($_GET["peranti"]) ? getDefaultColumnValue($conn, $_GET["id"], "peranti0") : $_GET["peranti"];// This logic is bad, will fetch peranti0 only if get variable is not set
     
     // Convert peranti array input into individual columns values
@@ -54,7 +56,7 @@ if(!empty($_GET["id"])){
     }
     
     // Update db row
-    $statement = "UPDATE pelajar SET nama='".$nama."', jantina='".$jantina."', tlahir='".$tlahir."', peringkat='".$peringkat."', program='".$program."', alamat='".$alamat."', peranti0='".$peranti0."', peranti1='".$peranti1."', peranti2='".$peranti2."', peranti3='".$peranti3."', peranti4='".$peranti4."', it='".$it."'  WHERE pengguna_id='".$_GET["id"]."'";
+    $statement = "UPDATE pelajar SET nama='".$nama."', jantina='".$jantina."', tlahir='".$tlahir."', peringkat='".$peringkat."', program='".$program."', alamat='".$alamat."', peranti0='".$peranti0."', peranti1='".$peranti1."', peranti2='".$peranti2."', peranti3='".$peranti3."', peranti4='".$peranti4."', it='".$it."', berat='".$berat."', tinggi='".$tinggi."'  WHERE pengguna_id='".$_GET["id"]."'";
     $isUpdated = mysqli_query($conn, $statement);
 
     if($isUpdated){

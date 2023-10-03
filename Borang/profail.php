@@ -56,6 +56,26 @@ if ($_SESSION["auth"]["role"] == "student") {
                                                 <input required type="number" min="0" step="0.1" name="tinggi" id="tinggi" class="form-control" placeholder="Tinggi(m)" value="<?php echo($pelajarData->tinggi)?>">
                                                 <label for="tinggi">Tinggi(m)</label>
                                             </div>
+                                            <div class="form-floating m-4">
+                                                <?php
+                                                    // Display bmi status based on height and weight begin
+                                                    function dipslayBMI($pelajarData){
+                                                        $bmi = $pelajarData->berat / $pelajarData->tinggi**2;
+                                                        if($bmi < 18.5){
+                                                            echo("BMI: ".round($bmi, 2)." - kurang berat badan");
+                                                        }else if($bmi <= 24.9){
+                                                            echo("BMI: ".round($bmi, 2)." - normal");
+                                                        }else if($bmi <= 30){
+                                                            echo("BMI: ".round($bmi, 2)." - lebih berat badan");
+                                                        }else{
+                                                            echo("BMI: ".round($bmi, 2)." - obes");
+                                                        }
+                                                    }
+                                                    // Display bmi status based on height and weight ends                                                        
+                                                ?>
+                                                <input required type="text" min="0" step="0.1" name="bmi" id="bmi" class="form-control" placeholder="BMI" readonly value="<?php dipslayBMI($pelajarData);?>">
+                                                <label for="bmi">BMI</label>
+                                            </div>
                                             <div class="form-check">
                                                 <label class="radio-inline">
                                                     Jantina:

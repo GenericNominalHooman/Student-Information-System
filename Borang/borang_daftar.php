@@ -18,41 +18,83 @@ require_once(BORANG_COMPONENTS_DIR . "/redirect_if_not_guest.php"); // Import au
 <script>
     $(document).ready(function() {
         function validate(e) {
-            
+
             let username = $("#username").val();
             let password = $("#password").val();
             let password_confirmation = $("#password_confirmation").val();
             let role = $("#role").val();
+            let valid = true;
 
             // Check whether username/password is filled out
-            if (username == '' && password == '' &&  password_confirmation == '' && role == '') {
+            if (username == '' && password == '' && password_confirmation == '' && role == '') {
                 window.alert("Sila isi setiap medan infomasi pendaftaran");
-                return false;
+                valid = false;
             } else {
                 // Check whether each field is empty
                 if (username == '') {
                     window.alert("Username tidak diisi");
+                    valid = false;
                 } else if (password == '') {
                     window.alert("Password tidak diisi");
+                    valid = false;
                 } else if (password_confirmation == '') {
                     window.alert("Password tidak diisi");
+                    valid = false;
                 } else if (role == '') {
                     window.alert("Jenis pengguna tidak dipilih");
+                    valid = false;
                 }
 
                 // Check whether each field is valid
                 console.log(username.match(/^[a-zA-Z0-9_\ ]+$/));
                 if (!username.match(/^[a-zA-Z0-9_\ ]+$/)) {
                     window.alert("Maaf, hanya huruf, ruang kosong dan _ sahaja dibenarkan");
+                    valid = false;
                 } else if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/)) {
-                    window.alert("Maaf, password mesti mempunyai 1 huruf besar, 1 huruf kecil, 1 simbol dan tanpa ruang kosong");
+                    window.alert("Maaf, kata kunci mesti mempunyai 1 huruf besar, 1 huruf kecil, 1 simbol dan tanpa ruang kosong");
+                    valid = false;
                 } else if (password_confirmation != password) {
                     window.alert("Kata kunci yang diisi tidak sama");
+                    valid = false;
                 }
             }
+
+            return valid;
         }
 
-        $(document).on("submit", "#register_form", validate);
+        // $(document).on("submit", "#register_form", validate); // Append event handler on the registeration form
+        $(document).ready(() => {
+            $(document).on("submit", "#register_form", (e) => {
+                e.preventDefault(); // Prevent creating a POST request
+                
+                console.log(validate(e));
+                if (validate(e) == true) {
+                    $.ajax({
+                        type: "POST",
+                        url: <?php echo(BORANG_URL."/daftar.php")?>,
+                        data: json_encode({
+                            username: $("#username").val(),
+                            password: $("#password").val(),
+                            password_confirmation: $("#password_confirmation").val(),
+                            role: $("#role").val()
+                        }),
+                        dataType: "json",
+                        success: function(data, textStatus) {
+                            if (data.redirect) {
+                                // data.redirect contains the string URL to redirect to
+                                window.location.href = data.redirect;
+                            } else {
+                                // data.form contains the HTML for the replacement form
+                                $("#myform").replaceWith(data.form);
+                            }
+                        }
+                    });
+                    console.log("Valid input");
+                }else{
+                    console.log("Invalid input");
+                }
+            })
+        })
     });
 </script>
 <!-- Jquery ends -->
@@ -104,7 +146,7 @@ require_once(BORANG_COMPONENTS_DIR . "/redirect_if_not_guest.php"); // Import au
                     </div>
                 </div>
                 <div class="col-12">
-                    <p class="text-muted">Anda sudah mempunyai akaun? <a href="<?php echo(BORANG_URL."/index.php");?>">Klik di sini</a></p>
+                    <p class="text-muted">Anda sudah mempunyai akaun? <a href="<?php echo (BORANG_URL . "/index.php"); ?>">Klik di sini</a></p>
                 </div>
 
                 <div class="col-12">
