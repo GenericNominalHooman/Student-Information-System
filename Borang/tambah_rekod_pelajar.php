@@ -53,7 +53,6 @@ $peranti1 = "";
 $peranti2 = "";
 $peranti3 = "";
 $peranti4 = "";
-// die(var_dump($userInputs["peranti"]));
 foreach($userInputs["peranti"] as $perkakasan_peranti){
     switch($perkakasan_peranti){
         case "smartphone":

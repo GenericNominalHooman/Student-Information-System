@@ -22,7 +22,6 @@ class Auth
 
     public function register($username, $password, $role)
     {
-        var_dump($username);
         // Sanitize user input
         $username = Sanitize::mysqli_safe(Sanitize::sanitize($username), $this->conn);
         $password = Sanitize::mysqli_safe(Sanitize::sanitize($password), $this->conn);

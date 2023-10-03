@@ -230,7 +230,7 @@ if ($_SESSION["auth"]["role"] == "student") {
                                                     <a class="btn btn-danger w-100 shadow-lg py-4" href="<?php echo (BORANG_URL . "/buang.php?id=" . $_GET["id"]); ?>"><i class="fa-solid fa-trash"></i><span class="ms-2">Buang</span></a>
                                                 </div>
                                                 <div class="col-12 col-lg-4 p-2">
-                                                    <button type="reset" class="btn btn-secondary w-100 shadow-lg py-4"><i class="fa-solid fa-arrow-rotate-right"></i><span class="ms-2">Batal</span></button>
+                                                    <button type="reset" class="btn btn-secondary w-100 shadow-lg py-4"><i class="fa-solid fa-arrow-rotate-right"></i><span class="ms-2">Isi Semula</span></button>
                                                 </div>
                                             </div>
                                         </div>

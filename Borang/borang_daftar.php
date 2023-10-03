@@ -46,7 +46,6 @@ require_once(BORANG_COMPONENTS_DIR . "/redirect_if_not_guest.php"); // Import au
                 }
 
                 // Check whether each field is valid
-                console.log(username.match(/^[a-zA-Z0-9_\ ]+$/));
                 if (!username.match(/^[a-zA-Z0-9_\ ]+$/)) {
                     window.alert("Maaf, hanya huruf, ruang kosong dan _ sahaja dibenarkan");
                     valid = false;
@@ -66,12 +65,15 @@ require_once(BORANG_COMPONENTS_DIR . "/redirect_if_not_guest.php"); // Import au
         $(document).ready(() => {
             $(document).on("submit", "#register_form", (e) => {
                 e.preventDefault(); // Prevent creating a POST request
-                
-                console.log(validate(e));
-                if (validate(e) == true) {
+
+                let isValid = validate(e); // Call validate(e) once and store the result
+
+                console.log("Outside: "+isValid);
+                if (isValid === true) {
+                    console.log("Inside: "+isValid);
                     $.ajax({
                         type: "POST",
-                        url: <?php echo(BORANG_URL."/daftar.php")?>,
+                        url: <?php echo (BORANG_URL . "/daftar.php") ?>,
                         data: json_encode({
                             username: $("#username").val(),
                             password: $("#password").val(),
@@ -90,11 +92,12 @@ require_once(BORANG_COMPONENTS_DIR . "/redirect_if_not_guest.php"); // Import au
                         }
                     });
                     console.log("Valid input");
-                }else{
+                } else {
                     console.log("Invalid input");
                 }
             })
         })
+
     });
 </script>
 <!-- Jquery ends -->

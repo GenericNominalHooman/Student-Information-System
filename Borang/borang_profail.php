@@ -17,12 +17,11 @@ if(isset($_SESSION["auth"])){
 
         $query = "SELECT COUNT(*) AS rekod_pelajar FROM pelajar WHERE pengguna_id='".$_SESSION["auth"]["id"]."'";
         $result = mysqli_query($conn, $query);
-        // die(var_dump(mysqli_fetch_assoc($result)));
         if(mysqli_fetch_assoc($result)["rekod_pelajar"] > 0){ // Rediretc if student already has a form
             Redirect::redirectGET(BORANG_URL."/profail.php", ["id" => $_SESSION["auth"]["id"]]);
         }
         
-    }else{ // Rediretc if user isn't student
+    }elseif($_SESSION["auth"]["role"] == "lecturer"){ // Rediretc if user isn't student
         Redirect::redirectGET(BORANG_URL."/lencong.php", []);
     }
 }else{ // Rediretc if user is guest
